@@ -6,9 +6,9 @@ public class EclipseCompilerClassCastExceptionReduced {
 		List<String> list = null;
 		Object foo = "[\"a\",\"b\"]";
 		// Breaks when "Unnecessary cast or 'instanceof' check" is set to 'Warning'
-//		list = new ObjectMapper2().readValue((String)foo, new TypeReference2<>() { /*  */ });
+		list = new ObjectMapper2().readValue((String)foo, new TypeReference2<>() { /*  */ });
 		
-		// Explicitly typing the TypeReference works around it
+		// Commenting out the previous line and explicitly typing the TypeReference works around it
 		list = new ObjectMapper2().readValue((String)foo, new TypeReference2<List<String>>() { /*  */ });
 		System.out.println(list);
 	}
